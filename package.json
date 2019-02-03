@@ -4,8 +4,8 @@
   "description": "a sample react app",
   "main": "app.js",
   "scripts": {
-    "start": "node index.js",
-    "start1": "nodemon --exec babel-node server.js --ignore public/",
+    "start1": "node index.js",
+    "start": "nodemon --exec babel-node server.js --ignore public/",
     "build": "webpack -wd --display-error-details"
   },
   "author": "roi",
