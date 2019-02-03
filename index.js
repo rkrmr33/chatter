@@ -7,4 +7,4 @@ server.get('/', (req, res) => {
 	res.end();
 });
 
-server.listen(8080, ()=> { console.log('listening on port 8080'); });
+server.listen(3000, ()=> { console.log('listening on port 8080'); });
