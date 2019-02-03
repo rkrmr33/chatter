@@ -7,4 +7,5 @@ server.get('/', (req, res) => {
 	res.end();
 });
 
-server.listen(3000, ()=> { console.log('listening on port 8080'); });
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, ()=> { console.log(`listening on port ${PORT}`); });
