@@ -8,10 +8,6 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-var _cors = require('cors');
-
-var _cors2 = _interopRequireDefault(_cors);
-
 var _api = require('./api/api');
 
 var _api2 = _interopRequireDefault(_api);
@@ -30,7 +26,6 @@ var server = (0, _express2.default)();
 
 server.set('view engine', 'ejs');
 server.use(_bodyParser2.default.json());
-server.use((0, _cors2.default)());
 
 var allRoutes = _serverRender.routes.map(function (route) {
 	return route.path;
