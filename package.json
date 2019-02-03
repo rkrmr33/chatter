@@ -4,7 +4,6 @@
   "description": "a sample react app",
   "main": "app.js",
   "scripts": {
-    "start1": "node index.js",
     "start": "nodemon --exec babel-node server.js --ignore public/",
     "build": "webpack -wd --display-error-details"
   },
