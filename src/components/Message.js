@@ -1,28 +1,71 @@
-import React from 'react';
-import propTypes from 'prop-types';
+'use strict';
 
-class Message extends React.Component {
-	render() {
-		return (
-			<div className="item">
-				<img src="/assets/chatter-icon.ico" className="ui avatar image"/>
-				<div className="content">
-					<div className="metadata">
-						<div className="ui horizontal label" style={{backgroundColor: this.props.user.specialColor, color: 'white'}}>{this.props.user.username}</div>
-						{new Date(this.props.timestamp).toLocaleTimeString()}
-					</div>
-					{this.props.body}
-				</div>
-			</div>);
-	}	
-}
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called'); } return call && (typeof call === 'object' || typeof call === 'function') ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Message = function (_React$Component) {
+	_inherits(Message, _React$Component);
+
+	function Message() {
+		_classCallCheck(this, Message);
+
+		return _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).apply(this, arguments));
+	}
+
+	_createClass(Message, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'item' },
+				_react2.default.createElement('img', { src: '/assets/chatter-icon.ico', className: 'ui avatar image' }),
+				_react2.default.createElement(
+					'div',
+					{ className: 'content' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'metadata' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'ui horizontal label', style: { backgroundColor: this.props.user.specialColor, color: 'white' } },
+							this.props.user.username
+						),
+						new Date(this.props.timestamp).toLocaleTimeString()
+					),
+					this.props.body
+				)
+			);
+		}
+	}]);
+
+	return Message;
+}(_react2.default.Component);
 
 Message.propTypes = {
-	_id: propTypes.string.isRequired,
-	chatId: propTypes.string.isRequired,
-	user: propTypes.object.isRequired,
-	body: propTypes.string.isRequired,
-	timestamp: propTypes.string.isRequired
+	_id: _propTypes2.default.string.isRequired,
+	chatId: _propTypes2.default.string.isRequired,
+	user: _propTypes2.default.object.isRequired,
+	body: _propTypes2.default.string.isRequired,
+	timestamp: _propTypes2.default.string.isRequired
 };
 
-export default Message;
+exports.default = Message;

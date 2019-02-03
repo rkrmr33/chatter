@@ -1,93 +1,112 @@
-import axios from 'axios';
+'use strict';
 
-export const apiUrl = 'http://192.168.1.24:3000';
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+exports.sendMessage = exports.quitChat = exports.enterChat = exports.login = exports.createAccount = exports.checkUsername = exports.fetchAllChats = exports.fetchChat = exports.fetchMessages = exports.fetchColor = exports.apiUrl = undefined;
+
+var _axios = require('axios');
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var apiUrl = exports.apiUrl = 'chatter-app-demo.herokuapp.com';
 
 // Handle bad requests and gives info to user
-const handleBadFetchStatus = (error, requestPath, respondWith) => {
-	if(error) {
-		console.log(`[-] Bad request to:'${requestPath}'. the response was:${error}`);
-		console.log(`[-] ${respondWith}`);
+var handleBadFetchStatus = function handleBadFetchStatus(error, requestPath, respondWith) {
+	if (error) {
+		console.log('[-] Bad request to:\'' + requestPath + '\'. the response was:' + error);
+		console.log('[-] ' + respondWith);
 		return false;
 	}
 	return true;
 };
 
 // USED FOR GENERATION A NEW RANDOM COLOR FOR A NEW USER SPECIAL_COLOR
-export const fetchColor = () => {
-	return axios.get(`${apiUrl}/api/color`)
-		.then(res => res.data)
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}/api/color`, 'Somthing went wrong with the fetch color request'));
+var fetchColor = exports.fetchColor = function fetchColor() {
+	return _axios2.default.get(apiUrl + '/api/color').then(function (res) {
+		return res.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + '/api/color', 'Somthing went wrong with the fetch color request');
+	});
 };
-
 
 // FETCHING MESSAGES FOR CHAT_ID FROM THE API
-export const fetchMessages = (chatId) => {
-	return axios.get(`${apiUrl}/api/messages/${chatId}`)
-		.then(res => res.data)
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}/api/messages/${chatId}`, 'Somthing went wrong with the fetch messages request'));
+var fetchMessages = exports.fetchMessages = function fetchMessages(chatId) {
+	return _axios2.default.get(apiUrl + '/api/messages/' + chatId).then(function (res) {
+		return res.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + '/api/messages/' + chatId, 'Somthing went wrong with the fetch messages request');
+	});
 };
-
 
 // FETCHIING A CHAT OBJECT FROM THE API
-export const fetchChat = (chatName) => {
-	return axios.get(`${apiUrl}/api/chats/${chatName}`)
-		.then(res => res.data)
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}api/chats/${chatName}`, 'Somthing went wrong with the fetch chat object request'));
+var fetchChat = exports.fetchChat = function fetchChat(chatName) {
+	return _axios2.default.get(apiUrl + '/api/chats/' + chatName).then(function (res) {
+		return res.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + 'api/chats/' + chatName, 'Somthing went wrong with the fetch chat object request');
+	});
 };
 
-export const fetchAllChats = () => {
-	return axios.get(`${apiUrl}/api/chats/`)
-		.then(res => res.data)
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}/api/chats/`, 'Somthing went wrong with the fetch all chats request'));
+var fetchAllChats = exports.fetchAllChats = function fetchAllChats() {
+	return _axios2.default.get(apiUrl + '/api/chats/').then(function (res) {
+		return res.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + '/api/chats/', 'Somthing went wrong with the fetch all chats request');
+	});
 };
 
-export const checkUsername = (username) => {
-	return axios.get(`${apiUrl}/api/users/check/${username}`)
-		.then(res => res.data)
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}api/users/check/${username}`, 'Somthing went wrong with the check username availability request'));
+var checkUsername = exports.checkUsername = function checkUsername(username) {
+	return _axios2.default.get(apiUrl + '/api/users/check/' + username).then(function (res) {
+		return res.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + 'api/users/check/' + username, 'Somthing went wrong with the check username availability request');
+	});
 };
 
-export const createAccount = (accountDetails) => {
-	return fetchColor()
-		.then(specialColor => {
-			accountDetails['specialColor'] = specialColor;
-			return axios.post(`${apiUrl}/api/users/create`, accountDetails)
-				.then(result => {
-					return result.data;
-				})
-				.catch(err => handleBadFetchStatus(err, `api/users/create/${accountDetails}`, 'Somthing went wrong with account creation request'));
-		})
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}/api/color`, 'Somthing went wrong with color fetch request'));
-};
-
-export const login = (account) => {
-	return axios.post(`${apiUrl}/api/users/login`, account)
-		.then(result => {
+var createAccount = exports.createAccount = function createAccount(accountDetails) {
+	return fetchColor().then(function (specialColor) {
+		accountDetails['specialColor'] = specialColor;
+		return _axios2.default.post(apiUrl + '/api/users/create', accountDetails).then(function (result) {
 			return result.data;
-		})
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}/api/users/login/${account.username}-${account.password}`, 'Somthing went wrong with user login request'));
+		}).catch(function (err) {
+			return handleBadFetchStatus(err, 'api/users/create/' + accountDetails, 'Somthing went wrong with account creation request');
+		});
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + '/api/color', 'Somthing went wrong with color fetch request');
+	});
 };
 
-export const enterChat = (username, _id) => {
-	return axios.post(`${apiUrl}/api/chats/enter`, {username, _id})
-		.then(result => {
-			return result.data;
-		})
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}/api/chats/enter/${username}-${_id}`, 'Somthing went wrong with user enter chat request'));
+var login = exports.login = function login(account) {
+	return _axios2.default.post(apiUrl + '/api/users/login', account).then(function (result) {
+		return result.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + '/api/users/login/' + account.username + '-' + account.password, 'Somthing went wrong with user login request');
+	});
 };
 
-export const quitChat = (username, _id) => {
-	return axios.post(`${apiUrl}/api/chats/quit`, {username, _id})
-		.then(result => {
-			return result.data;
-		})
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}/api/chats/quit/${username}-${_id}`, 'Somthing went wrong with user quit chat request'));
+var enterChat = exports.enterChat = function enterChat(username, _id) {
+	return _axios2.default.post(apiUrl + '/api/chats/enter', { username: username, _id: _id }).then(function (result) {
+		return result.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + '/api/chats/enter/' + username + '-' + _id, 'Somthing went wrong with user enter chat request');
+	});
 };
 
-export const sendMessage = (message) => {
-	return axios.post(`${apiUrl}/api/messages/send`, message)
-		.then(result => {
-			return result.data;
-		})
-		.catch(err => handleBadFetchStatus(err, `${apiUrl}/api/messages/send/${JSON.stringify(message)}`, 'Somthing went wrong with message send request'));
+var quitChat = exports.quitChat = function quitChat(username, _id) {
+	return _axios2.default.post(apiUrl + '/api/chats/quit', { username: username, _id: _id }).then(function (result) {
+		return result.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + '/api/chats/quit/' + username + '-' + _id, 'Somthing went wrong with user quit chat request');
+	});
+};
+
+var sendMessage = exports.sendMessage = function sendMessage(message) {
+	return _axios2.default.post(apiUrl + '/api/messages/send', message).then(function (result) {
+		return result.data;
+	}).catch(function (err) {
+		return handleBadFetchStatus(err, apiUrl + '/api/messages/send/' + JSON.stringify(message), 'Somthing went wrong with message send request');
+	});
 };
