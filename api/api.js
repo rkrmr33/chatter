@@ -34,7 +34,7 @@ var router = _express2.default.Router();
 
 //CONNECT TO DB
 var mdb = void 0;
-
+console.log(_config2.default.dbUri);
 _mongodb.MongoClient.connect(_config2.default.dbUri, { useNewUrlParser: true }, function (err, client) {
 	_assert2.default.equal(null, err);
 	mdb = client.db('test');
