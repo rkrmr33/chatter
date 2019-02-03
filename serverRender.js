@@ -22,7 +22,7 @@ var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 var _App = require('./src/components/App');
 
 var _App2 = _interopRequireDefault(_App);
-
+require('babel-polyfill');
 var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
