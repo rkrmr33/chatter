@@ -11,7 +11,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var apiUrl = exports.apiUrl = '0.0.0.0';
+var apiUrl = exports.apiUrl = '52.17.22.87';
 
 // Handle bad requests and gives info to user
 var handleBadFetchStatus = function handleBadFetchStatus(error, requestPath, respondWith) {

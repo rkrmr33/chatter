@@ -7,7 +7,7 @@ var env = process.env;
 
 exports.default = {
 	PORT: env.PORT || 8080,
-	HOST: env.HOST || '0.0.0.0',
+	HOST: env.HOST || '52.17.22.87',
 	randomColorUrl: 'http://www.colr.org/json/color/random',
 	dbUri: 'mongodb+srv://roikramer:wonder100@cluster0-qxuhq.gcp.mongodb.net/test?retryWrites=true',
 	get serverUrl() {
