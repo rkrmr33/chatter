@@ -19,8 +19,6 @@ var _isomorphicFetch = require('isomorphic-fetch');
 
 var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
-require('babel/polyfill');
-
 var _App = require('./src/components/App');
 
 var _App2 = _interopRequireDefault(_App);
