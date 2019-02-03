@@ -11,7 +11,7 @@ exports.default = {
 	PORT: env.PORT || 8080,
 	HOST: env.HOST || '0.0.0.0',
 	randomColorUrl: 'http://www.colr.org/json/color/random',
-	dbUri: 'mongodb+srv://roikramer:wonder100@cluster0-qxuhq.gcp.mongodb.net/test?retryWrites=true',
+	dbUri: 'mongodb://root:wonder100@ds235711.mlab.com:35711/heroku_rwfpp10l',
 	get serverUrl() {
 		return 'http://' + this.HOST + ':' + this.PORT;
 	}

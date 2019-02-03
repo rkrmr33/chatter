@@ -45,6 +45,6 @@ server.get(allRoutes, function (req, res) {
 server.use(_express2.default.static(__dirname + '/public'));
 server.use('/api', _api2.default);
 
-server.listen(_config2.default.PORT, _config2.default.HOST, function () {
+server.listen(_config2.default.PORT, function () {
 	console.log('[+] server url is ' + _config2.default.serverUrl);
 });
