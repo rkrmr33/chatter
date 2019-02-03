@@ -11,7 +11,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var apiUrl = exports.apiUrl = 'chatter-app-demo.herokuapp.com';
+var apiUrl = exports.apiUrl = 'localhost';
 
 // Handle bad requests and gives info to user
 var handleBadFetchStatus = function handleBadFetchStatus(error, requestPath, respondWith) {
