@@ -19,7 +19,7 @@ var _isomorphicFetch = require('isomorphic-fetch');
 
 var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
-require('babel-polyfill');
+require('babel/polyfill');
 
 var _App = require('./src/components/App');
 
