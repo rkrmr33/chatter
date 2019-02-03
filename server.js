@@ -34,7 +34,7 @@ var allRoutes = _serverRender.routes.map(function (route) {
 server.get(allRoutes, function (req, res) {
 	(0, _serverRender2.default)(req.originalUrl).then(function (_ref) {
 		var initialMarkup = _ref.initialMarkup,
-		    __INITIAL_DATA__ = _ref.__INITIAL_DATA__;
+			__INITIAL_DATA__ = _ref.__INITIAL_DATA__;
 
 		res.render('index', {
 			initialMarkup: initialMarkup,
