@@ -5,6 +5,8 @@ Object.defineProperty(exports, '__esModule', {
 });
 var env = process.env;
 
+console.log('meow +++ ' + env.HOST);
+
 exports.default = {
 	PORT: env.PORT || 8080,
 	HOST: env.HOST || '52.17.22.87',
